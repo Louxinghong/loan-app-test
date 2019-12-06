@@ -1,0 +1,49 @@
+<template>
+  <van-tabbar class="footer" v-model="active" active-color="crimson" inactive-color="#000">
+    <van-tabbar-item>
+      <svg-icon class="icon" icon-class="home"></svg-icon>
+      <p>首页</p>
+    </van-tabbar-item>
+    <van-tabbar-item>
+      <svg-icon icon-class="monetary"></svg-icon>
+      <p>金融</p>
+    </van-tabbar-item>
+    <van-tabbar-item>
+      <svg-icon icon-class="insurance"></svg-icon>
+      <p>保险</p>
+    </van-tabbar-item>
+    <van-tabbar-item>
+      <svg-icon icon-class="mine"></svg-icon>
+      <p>我的</p>
+    </van-tabbar-item>
+  </van-tabbar>
+</template>
+
+<script>
+export default {
+  name: 'Footer',
+  data () {
+    return {
+      active: 0,
+      icon: {
+        active: 'https://img.yzcdn.cn/vant/user-active.png',
+        inactive: 'https://img.yzcdn.cn/vant/user-inactive.png'
+      }
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.footer {
+  .van-tabbar-item__text {
+    .svg-icon {
+      width: 0.5rem;
+      height: 0.4rem;
+    }
+    p {
+      margin: 0.1rem 0;
+    }
+  }
+}
+</style>
