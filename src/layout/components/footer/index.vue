@@ -1,7 +1,7 @@
 <template>
   <van-tabbar class="footer" v-model="active" active-color="crimson" inactive-color="#000">
     <van-tabbar-item>
-      <svg-icon class="icon" icon-class="home"></svg-icon>
+      <svg-icon icon-class="home"></svg-icon>
       <p>首页</p>
     </van-tabbar-item>
     <van-tabbar-item>
@@ -36,7 +36,14 @@ export default {
 
 <style lang="less" scoped>
 .footer {
-  .van-tabbar-item__text {
+  height: 1rem;
+  z-index: 1000 !important;
+
+  /deep/ .van-tabbar-item__text {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
     .svg-icon {
       width: 0.5rem;
       height: 0.4rem;

@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import components from './components'
+import VueLazyload from 'vue-lazyload'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 import './utils/flexible.js'
@@ -10,6 +11,7 @@ import './styles/main.less'
 import './icons'
 
 Vue.use(Vant)
+Vue.use(VueLazyload)
 
 // 注册全局组件
 Object.keys(components).forEach(key => {

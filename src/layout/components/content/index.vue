@@ -12,7 +12,7 @@ export default {
 
 <style lang="less" scoped>
 .content {
-  min-height: 100vh;
+  min-height: calc(100% - 1rem);
   margin-bottom: 1rem;
 }
 </style>
