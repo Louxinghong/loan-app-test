@@ -1,10 +1,10 @@
 <template>
-  <van-tabbar class="footer" v-model="active" active-color="crimson" inactive-color="#000">
-    <van-tabbar-item>
+  <van-tabbar route class="footer" v-model="active" active-color="crimson" inactive-color="#000">
+    <van-tabbar-item to="/home">
       <svg-icon icon-class="home"></svg-icon>
       <p>首页</p>
     </van-tabbar-item>
-    <van-tabbar-item>
+    <van-tabbar-item to="/monetary-page/monetary">
       <svg-icon icon-class="monetary"></svg-icon>
       <p>金融</p>
     </van-tabbar-item>
@@ -30,7 +30,8 @@ export default {
         inactive: 'https://img.yzcdn.cn/vant/user-inactive.png'
       }
     }
-  }
+  },
+  methods: {}
 }
 </script>
 

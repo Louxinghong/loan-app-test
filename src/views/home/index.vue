@@ -25,7 +25,7 @@
           left-icon="phone-circle-o"
           placeholder="请输入手机号"
         />
-        <van-button class="btn-borrow" type="warning">我要借钱</van-button>
+        <van-button class="btn-borrow" type="warning" @click="onBorrow">我要借钱</van-button>
       </div>
     </div>
     <div class="functions">
@@ -99,6 +99,11 @@ export default {
   },
   beforeDestroy () {
     clearInterval(this.timer)
+  },
+  methods: {
+    onBorrow () {
+      this.$toast({ message: '干啥干啥', icon: 'balance-list-o' })
+    }
   }
 }
 </script>
