@@ -28,5 +28,22 @@ module.exports = {
       .use('svgo-loader')
       .loader('svgo-loader')
       .end()
+  },
+  devServer: {
+    // 本机的ip和端口
+    open: true,
+    host: 'localhost',
+    port: 8080,
+    https: false,
+    // 配置跨域
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000/api',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
   }
 }

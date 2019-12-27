@@ -6,7 +6,9 @@
       </div>
       <div class="money-info">
         <div>
-          <van-button plain round color="#fc5d55">登录/注册</van-button>
+          <van-button plain round color="#fc5d55" @click="onLogin"
+            >登录/注册</van-button
+          >
         </div>
         <span class="title">申请贷款，请先登录</span>
       </div>
@@ -51,6 +53,19 @@ export default {
         { name: '设置', icon: 'setting' },
         { name: '异常信息', icon: 'error' }
       ]
+    }
+  },
+  methods: {
+    onLogin () {
+      this.$http
+        .get('/api/getMobileList', {
+          params: {
+            mobile: '18377054410'
+          }
+        })
+        .then(res => {
+          console.log(res)
+        })
     }
   }
 }
