@@ -12,7 +12,7 @@
       <svg-icon icon-class="insurance"></svg-icon>
       <p>保险</p>
     </van-tabbar-item>
-    <van-tabbar-item>
+    <van-tabbar-item to="/mine/user-info">
       <svg-icon icon-class="mine"></svg-icon>
       <p>我的</p>
     </van-tabbar-item>

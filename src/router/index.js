@@ -33,6 +33,18 @@ const routes = [
     ]
   },
   {
+    path: '/mine',
+    name: 'Mine',
+    component: Layout,
+    children: [
+      {
+        path: 'user-info',
+        component: () =>
+          import(/* webpackChunkName: 'mine' */ '@/views/mine/index.vue')
+      }
+    ]
+  },
+  {
     path: '/test',
     name: 'Test',
     component: () => import(/* webpackChunkName: 'test' */ '@/layout/index.vue')
