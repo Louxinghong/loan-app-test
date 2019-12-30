@@ -6,9 +6,7 @@
       </div>
       <div class="money-info">
         <div>
-          <van-button plain round color="#fc5d55" @click="onLogin"
-            >登录/注册</van-button
-          >
+          <van-button plain round color="#fc5d55" @click="onGotoLogin">登录/注册</van-button>
         </div>
         <span class="title">申请贷款，请先登录</span>
       </div>
@@ -56,16 +54,8 @@ export default {
     }
   },
   methods: {
-    onLogin () {
-      this.$http
-        .get('/api/getMobileList', {
-          params: {
-            mobile: '18377054410'
-          }
-        })
-        .then(res => {
-          console.log(res)
-        })
+    onGotoLogin () {
+      this.$router.push('/user-login')
     }
   }
 }

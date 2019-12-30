@@ -7,4 +7,8 @@ router.get('/getMobileList', (req, res, next) => {
   api.getMobileList(req, res, next)
 })
 
+router.get('/getLogin', (req, res, next) => {
+  api.getLogin(req, res, next)
+})
+
 module.exports = router

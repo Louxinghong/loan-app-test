@@ -10,11 +10,13 @@ const routes = [
     name: 'HomePage',
     component: Layout,
     redirect: '/home',
+    meta: { index: 1 },
     children: [
       {
         path: 'home',
         component: () =>
-          import(/* webpackChunkName: 'home-page' */ '@/views/home/index.vue')
+          import(/* webpackChunkName: 'home-page' */ '@/views/home/index.vue'),
+        meta: { index: 2 }
       }
     ]
   },
@@ -22,13 +24,16 @@ const routes = [
     path: '/monetary-page',
     name: 'MonetaryPage',
     component: Layout,
+    redirect: '/monetary-page/monetary',
+    meta: { index: 3 },
     children: [
       {
         path: 'monetary',
         component: () =>
           import(
             /* webpackChunkName: 'monetary-page' */ '@/views/monetary/index.vue'
-          )
+          ),
+        meta: { index: 4 }
       }
     ]
   },
@@ -36,13 +41,25 @@ const routes = [
     path: '/mine',
     name: 'Mine',
     component: Layout,
+    redirect: '/mine/user-info',
+    meta: { index: 5 },
     children: [
       {
         path: 'user-info',
         component: () =>
-          import(/* webpackChunkName: 'mine' */ '@/views/mine/index.vue')
+          import(/* webpackChunkName: 'mine' */ '@/views/mine/index.vue'),
+        meta: { index: 6 }
       }
     ]
+  },
+  {
+    path: '/user-login',
+    name: 'UserLogin',
+    component: () =>
+      import(
+        /* webpackChunkName: 'login' */ '@/views/mine/components/Login.vue'
+      ),
+    meta: { index: 7 }
   },
   {
     path: '/test',
