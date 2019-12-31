@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav-page title="设置" />
+    <nav-go-back title="设置" />
     <van-list>
       <van-cell v-for="(item, index) in settingList" :key="index" :title="item.name">
         <van-icon class="arrow" name="arrow" />

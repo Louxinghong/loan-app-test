@@ -1,12 +1,12 @@
 <template>
-  <div class="nav">
+  <div class="nav-go-back">
     <van-nav-bar :title="title" left-arrow @click-left="onClickLeft" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NavPage',
+  name: 'NavGoBack',
   global: true,
   props: {
     title: {

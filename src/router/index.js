@@ -67,6 +67,13 @@ const routes = [
     meta: { index: 8 }
   },
   {
+    path: '/my-info',
+    name: 'MyInfo',
+    component: () =>
+      import(/* webpackChunkName: 'mine' */ '@/views/mine/my-info/index.vue'),
+    meta: { index: 9 }
+  },
+  {
     path: '/test',
     name: 'Test',
     component: () => import(/* webpackChunkName: 'test' */ '@/layout/index.vue')

@@ -23,7 +23,7 @@
           <svg-icon icon-class="my-loan"></svg-icon>
           <p>我的借款</p>
         </div>
-        <div class="my-info">
+        <div class="my-info" @click="onGotoMyInfo">
           <svg-icon icon-class="my-info"></svg-icon>
           <p>个人信息</p>
         </div>
@@ -73,6 +73,9 @@ export default {
   methods: {
     onGotoLogin () {
       this.$router.push('/user-login')
+    },
+    onGotoMyInfo () {
+      this.$router.push('/my-info')
     },
     onGotoIndex (val) {
       this.$router.push('/setting')
