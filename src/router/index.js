@@ -56,10 +56,15 @@ const routes = [
     path: '/user-login',
     name: 'UserLogin',
     component: () =>
-      import(
-        /* webpackChunkName: 'login' */ '@/views/mine/components/Login.vue'
-      ),
+      import(/* webpackChunkName: 'mine' */ '@/views/mine/login/index.vue'),
     meta: { index: 7 }
+  },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: () =>
+      import(/* webpackChunkName: 'mine' */ '@/views/mine/setting/index.vue'),
+    meta: { index: 8 }
   },
   {
     path: '/test',

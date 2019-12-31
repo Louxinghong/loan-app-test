@@ -44,7 +44,7 @@ export default {
   methods: {
     onClose () {
       this.isClose = true
-      this.isClose && this.$router.replace('/mine/user-info')
+      this.isClose && this.$router.go(-1)
     },
     onLogin () {
       if (this.mobile === '') {
@@ -63,6 +63,7 @@ export default {
             if (res.data.length === 1) {
               this.$store.dispatch('user/changeLoginStatus', true)
               this.$notify({ type: 'success', message: '登录成功' })
+              this.$router.replace('/mine/user-info')
             } else {
               this.$notify({ type: 'danger', message: '账号/密码有误' })
             }
@@ -78,7 +79,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  // animation: transShow 0.5s linear 0s forwards normal;
+  // animation: transShow 0.5s linear 0s 1 normal;
   // @keyframes transShow {
   //   from {
   //     transform: translateX(100%);

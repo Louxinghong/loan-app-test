@@ -5,10 +5,18 @@
         <!-- <span>未登录</span> -->
       </div>
       <div class="money-info">
-        <div>
+        <div v-if="!isLogin" class="money-info-logout">
           <van-button plain round color="#fc5d55" @click="onGotoLogin">登录/注册</van-button>
+          <p class="title">申请贷款，请先登录</p>
         </div>
-        <span class="title">申请贷款，请先登录</span>
+        <div v-else class="money-info-login">
+          <p>可用额度(元)</p>
+          <p>860000.00</p>
+          <p>
+            总额度
+            <span>1000000.00</span>
+          </p>
+        </div>
       </div>
       <div class="user-list">
         <div class="my-loan">
@@ -28,7 +36,11 @@
 
     <div class="features-list">
       <van-list>
-        <van-cell v-for="(item, index) in customInfoList" :key="index">
+        <van-cell
+          v-for="(item, index) in customInfoList"
+          :key="index"
+          @click="onGotoIndex(item.path)"
+        >
           <svg-icon :icon-class="item.icon"></svg-icon>
           <span>{{ item.name }}</span>
           <van-icon class="arrow" name="arrow" />
@@ -48,14 +60,22 @@ export default {
         { name: '意见反馈', icon: 'feedback' },
         { name: '在线客服', icon: 'online-service' },
         { name: '帮助中心', icon: 'help' },
-        { name: '设置', icon: 'setting' },
+        { name: '设置', icon: 'setting', path: '/setting' },
         { name: '异常信息', icon: 'error' }
       ]
+    }
+  },
+  computed: {
+    isLogin () {
+      return this.$store.state.user.isLogin
     }
   },
   methods: {
     onGotoLogin () {
       this.$router.push('/user-login')
+    },
+    onGotoIndex (val) {
+      this.$router.push('/setting')
     }
   }
 }
@@ -73,20 +93,46 @@ export default {
   border-bottom: 1px solid #cccccc;
 
   .money-info {
+    position: relative;
     width: 100%;
     height: 3rem;
     border-radius: 5px;
     background: -webkit-linear-gradient(left, #fc9343, #fc5d55);
     box-shadow: 0px 5px 10px rgba(252, 121, 65, 0.4);
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
 
-    .title {
-      color: #ffffff;
-      margin-top: 0.2rem;
-      font-size: 0.25rem;
+    .money-info-logout {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .title {
+        color: #ffffff;
+        font-size: 0.25rem;
+      }
+    }
+
+    .money-info-login {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 0.5rem;
+
+      p {
+        color: #ffffff;
+        margin: 0;
+
+        &:nth-child(1) {
+          font-size: 0.25rem;
+        }
+        &:nth-child(2) {
+          margin: 0.15rem 0;
+          font-size: 0.7rem;
+        }
+        &:nth-child(3) {
+          font-size: 0.15rem;
+        }
+      }
     }
   }
 
