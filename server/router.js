@@ -3,12 +3,12 @@ const express = require('express')
 const router = express.Router()
 const api = require('./api')
 
-router.get('/getMobileList', (req, res, next) => {
-  api.getMobileList(req, res, next)
-})
-
 router.get('/getLogin', (req, res, next) => {
   api.getLogin(req, res, next)
+})
+
+router.post('/getRegister', (req, res, next) => {
+  api.getRegister(req, res, next)
 })
 
 module.exports = router

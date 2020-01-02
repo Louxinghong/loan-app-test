@@ -46,6 +46,7 @@ const routes = [
     children: [
       {
         path: 'user-info',
+        name: 'UserInfo',
         component: () =>
           import(/* webpackChunkName: 'mine' */ '@/views/mine/index.vue'),
         meta: { index: 6 }
@@ -60,18 +61,25 @@ const routes = [
     meta: { index: 7 }
   },
   {
+    path: '/user-register',
+    name: 'UserRegister',
+    component: () =>
+      import(/* webpackChunkName: 'mine' */ '@/views/mine/register/index.vue'),
+    meta: { index: 8 }
+  },
+  {
     path: '/setting',
     name: 'Setting',
     component: () =>
       import(/* webpackChunkName: 'mine' */ '@/views/mine/setting/index.vue'),
-    meta: { index: 8 }
+    meta: { index: 9 }
   },
   {
     path: '/my-info',
     name: 'MyInfo',
     component: () =>
       import(/* webpackChunkName: 'mine' */ '@/views/mine/my-info/index.vue'),
-    meta: { index: 9 }
+    meta: { index: 10 }
   },
   {
     path: '/test',

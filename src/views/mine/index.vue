@@ -1,8 +1,9 @@
 <template>
   <div class="container">
     <div class="user-container">
-      <div class="user-info">
-        <!-- <span>未登录</span> -->
+      <div v-if="isLogin" class="user-info">
+        <svg-icon icon-class="login-person"></svg-icon>
+        <span class="name">欢迎回来，{{ $route.params.name }}</span>
       </div>
       <div class="money-info">
         <div v-if="!isLogin" class="money-info-logout">
@@ -78,7 +79,7 @@ export default {
       this.$router.push('/my-info')
     },
     onGotoIndex (val) {
-      this.$router.push('/setting')
+      this.$router.push(val)
     }
   }
 }
@@ -94,6 +95,21 @@ export default {
   padding: 0.3rem;
   margin-bottom: 0.2rem;
   border-bottom: 1px solid #cccccc;
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+
+    .svg-icon {
+      width: 0.6rem;
+      height: 0.6rem;
+    }
+
+    .name {
+      font-size: 0.2rem;
+    }
+  }
 
   .money-info {
     position: relative;

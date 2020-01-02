@@ -22,7 +22,7 @@
       </div>
       <div class="btn-content">
         <button class="login" @click="onLogin">登录</button>
-        <button class="register">没有账号，前去注册</button>
+        <button class="register" @click="onRegister">没有账号，前去注册</button>
       </div>
     </div>
   </div>
@@ -63,12 +63,18 @@ export default {
             if (res.data.length === 1) {
               this.$store.dispatch('user/changeLoginStatus', true)
               this.$notify({ type: 'success', message: '登录成功' })
-              this.$router.replace('/mine/user-info')
+              this.$router.push({
+                name: 'UserInfo',
+                params: res.data[0]
+              })
             } else {
               this.$notify({ type: 'danger', message: '账号/密码有误' })
             }
           })
       }
+    },
+    onRegister () {
+      this.$router.push('/user-register')
     }
   }
 }

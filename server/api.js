@@ -14,22 +14,6 @@ var pool = mysql.createPool({
 })
 
 module.exports = {
-  getMobileList (req, res, next) {
-    const mobile = req.query.mobile
-    pool.getConnection((err, connection) => {
-      if (err) {
-        throw err
-      }
-      const sql = sqlMap.getMobile
-      connection.query(sql, [mobile], (err, result) => {
-        if (err) {
-          throw err
-        }
-        res.json(result)
-      })
-      connection.release()
-    })
-  },
   getLogin (req, res, next) {
     const mobile = req.query.mobile
     const password = req.query.password
@@ -39,6 +23,24 @@ module.exports = {
       }
       const sql = sqlMap.getUsers
       connection.query(sql, [mobile, password], (err, result) => {
+        if (err) {
+          throw err
+        }
+        res.json(result)
+      })
+      connection.release()
+    })
+  },
+  getRegister (req, res, next) {
+    const mobile = req.body.mobile
+    const password = req.body.password
+    const name = req.body.name
+    pool.getConnection((err, connection) => {
+      if (err) {
+        throw err
+      }
+      const sql = sqlMap.addUsers
+      connection.query(sql, [mobile, password, name], (err, result) => {
         if (err) {
           throw err
         }
