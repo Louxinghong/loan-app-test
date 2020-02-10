@@ -38,18 +38,35 @@ const routes = [
     ]
   },
   {
+    path: '/insurance-page',
+    name: 'InsurancePage',
+    component: Layout,
+    redirect: '/insurance-page/insurance',
+    meta: { index: 5 },
+    children: [
+      {
+        path: 'insurance',
+        component: () =>
+          import(
+            /* webpackChunkName: 'insurance-page' */ '@/views/insurance/index.vue'
+          ),
+        meta: { index: 6 }
+      }
+    ]
+  },
+  {
     path: '/mine',
     name: 'Mine',
     component: Layout,
     redirect: '/mine/user-info',
-    meta: { index: 5 },
+    meta: { index: 7 },
     children: [
       {
         path: 'user-info',
         name: 'UserInfo',
         component: () =>
           import(/* webpackChunkName: 'mine' */ '@/views/mine/index.vue'),
-        meta: { index: 6 }
+        meta: { index: 8 }
       }
     ]
   },
@@ -58,28 +75,28 @@ const routes = [
     name: 'UserLogin',
     component: () =>
       import(/* webpackChunkName: 'mine' */ '@/views/mine/login/index.vue'),
-    meta: { index: 7 }
+    meta: { index: 9 }
   },
   {
     path: '/user-register',
     name: 'UserRegister',
     component: () =>
       import(/* webpackChunkName: 'mine' */ '@/views/mine/register/index.vue'),
-    meta: { index: 8 }
+    meta: { index: 10 }
   },
   {
     path: '/setting',
     name: 'Setting',
     component: () =>
       import(/* webpackChunkName: 'mine' */ '@/views/mine/setting/index.vue'),
-    meta: { index: 9 }
+    meta: { index: 11 }
   },
   {
     path: '/my-info',
     name: 'MyInfo',
     component: () =>
       import(/* webpackChunkName: 'mine' */ '@/views/mine/my-info/index.vue'),
-    meta: { index: 10 }
+    meta: { index: 12 }
   },
   {
     path: '/test',

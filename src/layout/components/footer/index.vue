@@ -8,7 +8,7 @@
       <svg-icon icon-class="monetary"></svg-icon>
       <p>金融</p>
     </van-tabbar-item>
-    <van-tabbar-item>
+    <van-tabbar-item to="/insurance-page/insurance">
       <svg-icon icon-class="insurance"></svg-icon>
       <p>保险</p>
     </van-tabbar-item>

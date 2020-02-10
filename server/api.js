@@ -48,5 +48,20 @@ module.exports = {
       })
       connection.release()
     })
+  },
+  getInsuranceType (req, res, next) {
+    pool.getConnection((err, connection) => {
+      if (err) {
+        throw err
+      }
+      const sql = sqlMap.getInsuranceType
+      connection.query(sql, (err, result) => {
+        if (err) {
+          throw err
+        }
+        res.json(result)
+      })
+      connection.release()
+    })
   }
 }

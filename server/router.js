@@ -11,4 +11,8 @@ router.post('/getRegister', (req, res, next) => {
   api.getRegister(req, res, next)
 })
 
+router.get('/getInsuranceType', (req, res, next) => {
+  api.getInsuranceType(req, res, next)
+})
+
 module.exports = router
